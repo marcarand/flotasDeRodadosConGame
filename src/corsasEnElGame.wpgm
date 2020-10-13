@@ -2,7 +2,7 @@ import wollok.game.*
 import rodados.*
 
 program corsasEnElGame {
-	// hacer las inicializaciones necesarias 
+
 	game.title("Demo Chevrolet Corsa")
 
 	game.width(15)
