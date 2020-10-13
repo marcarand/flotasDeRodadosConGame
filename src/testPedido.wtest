@@ -1,0 +1,23 @@
+import rodados.*
+import pedidos.*
+
+test "Pedido" {
+
+	var cachito = new ChevroletCorsa(color='rojo')
+
+	// primer escenario
+	var pedido1 = new Pedido(distancia=960, tiempoMaximo=8, cantidadPasajeros=4, coloresIncompatibles=['azul', 'negro'])
+	// verificación
+	assert.that(pedido1.puedeSatisfacerPedido(cachito))
+
+	// segundo escenario
+	var pedido2 = new Pedido(distancia=960, tiempoMaximo=8, cantidadPasajeros=4, coloresIncompatibles=['azul', 'negro', 'rojo'])
+	// verificación
+	assert.that(not pedido2.puedeSatisfacerPedido(cachito))
+
+	// primer escenario
+	var pedido3 = new Pedido(distancia=960, tiempoMaximo=6, cantidadPasajeros=4, coloresIncompatibles=['azul', 'negro'])
+	// verificación
+	assert.that(not pedido3.puedeSatisfacerPedido(cachito))
+
+}

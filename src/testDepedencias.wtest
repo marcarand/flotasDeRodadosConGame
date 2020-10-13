@@ -1,0 +1,48 @@
+import rodados.*
+import dependencias.*
+
+test "Dos Dependencias" {
+
+	// escenario
+	var deportes = new Dependencia(empleados = 45)
+	var cultura = new Dependencia(empleados = 31)
+	var cachito = new ChevroletCorsa(color='rojo')
+	var corsaAzul = new ChevroletCorsa(color='azul')
+	var corsaVerde = new ChevroletCorsa(color='verde')
+	var renaultConTanque0 = new RenaultKwid(tanqueAdicional=true)
+	var especial = new AutosEspeciales(capacidad=5, velocidadMaxima=160, color='beige', peso=1200)
+	
+	deportes.agregarAFlota(cachito)
+	deportes.agregarAFlota(corsaAzul)
+	deportes.agregarAFlota(corsaVerde)
+	deportes.agregarAFlota(renaultConTanque0)
+	deportes.agregarAFlota(especial)
+	
+	var renaultConTanque1 = new RenaultKwid(tanqueAdicional=true)
+	var renaultConTanque2 = new RenaultKwid(tanqueAdicional=true)
+	var renaultConTanque3 = new RenaultKwid(tanqueAdicional=false)
+	traffic.interior('popular')
+	traffic.motor('bataton')
+	
+	cultura.agregarAFlota(cachito)
+	cultura.agregarAFlota(renaultConTanque1)
+	cultura.agregarAFlota(renaultConTanque2)
+	cultura.agregarAFlota(renaultConTanque3)
+	cultura.agregarAFlota(traffic)
+	
+	
+	// verificaciones
+	assert.equals(6450, deportes.pesoTotalFlota())
+	assert.equals(10700, cultura.pesoTotalFlota())
+	assert.that(deportes.estaBienEquipada())
+	assert.that(not cultura.estaBienEquipada())
+	assert.equals(7, deportes.capacidadTotalEnColor('azul')
+	assert.equals(10, cultura.capacidadTotalEnColor('azul'))
+	assert.equals('beige', deportes.colorDelRodadoMasRapido())	
+	assert.equals('rojo', cultura.colorDelRodadoMasRapido())
+	assert.that(deportes.esGrande())
+	assert.that(not cultura.esGrande())
+	assert.equals(25, deportes.capacidadFaltante())
+	assert.equals(5, cultura.capacidadFaltante())
+
+}
