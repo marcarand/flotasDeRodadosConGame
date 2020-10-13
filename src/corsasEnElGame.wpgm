@@ -2,19 +2,19 @@ import wollok.game.*
 import rodados.*
 
 program corsasEnElGame {
-
+	// hacer las inicializaciones necesarias 
 	game.title("Demo Chevrolet Corsa")
 
 	game.width(15)
 	game.height(15)
 	
-	var autito = new ChevroletCorsa(color='rojo')
+	var autito = new ChevroletCorsa(color='rojo', position=game.at(0,0))
 	game.addVisual(autito)
 
-	// keyboard.up().onPressDo ({autito.moverseHacia(norte)})	
-	// keyboard.down().onPressDo ({autito.moverseHacia(sur)})	
-	// keyboard.left().onPressDo ({autito.moverseHacia(oeste)})	
-	// keyboard.right().onPressDo ({autito.moverseHacia(este)})
+	keyboard.up().onPressDo ({autito.moverArriba()})	
+	keyboard.down().onPressDo ({autito.moversAbajo()})	
+	keyboard.left().onPressDo ({autito.moverIzquierda()})	
+	keyboard.right().onPressDo ({autito.moverDerecha()})
 
  	game.start()	
 }

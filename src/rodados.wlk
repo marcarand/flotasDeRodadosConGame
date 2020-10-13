@@ -5,12 +5,31 @@ class ChevroletCorsa {
 	const property velocidadMaxima = 150
 	const property color
 	const property peso = 1300
+
 	var property recorridos = []
-	var property position = new Position(x=4, y=7)
+	var property position
 	var property image = "autitorojo.png"	
 
-	method pasoPor(posicion) { return recorridos.any( {recorrido => recorrido == posicion} )}
+	method moverArriba(){ 
+		recorridos.add(self.position())
+		self.position(self.position().up(1))
+	}
+	method moverAbajo(){
+		recorridos.add(self.position())
+		self.position(self.position().down(1))
+	}
+	method moverDerecha(){
+		recorridos.add(self.position())
+		self.position(self.position().right(1))
+	}
+	method moverIzquierda(){
+		recorridos.add(self.position())
+		self.position(self.position().left(1))
+	}
 	
+	method pasoPor(posicion) { return recorridos.any( {recorrido => recorrido == posicion} ) }
+	method pasoPorFila(numero) { return recorridos.any( {recorrido => recorrido.position().x() == numero} ) }
+	method recorrioFilas(lista_de_numeros) { return lista_de_numeros.all( {numero => self.pasoPorFila(numero)} )}
 }
 
 
